@@ -1,0 +1,1 @@
+<h1>this is firstpost page</h1>
