@@ -41,24 +41,15 @@
 </head>
 <body>  
     <div class="heading-wrap">
-        <a href="{{route('division.create')}}" >Add Divison</a>
+        <a href="{{route('category.create')}}" >Create Categories</a>
     </div>
         <table class="w3-table w3-striped">
                 <tr>
-                    <th>Country Name</th>
-                    <th>Division Name</th>
-                    <th>Actions</th>
+                    <th>Category Name</th>
                 </tr>
-            @foreach ($divisions as $division)
+            @foreach ($categories as $category)
                 <tr>
-                    <td>@if(!empty($division->countries)){{ $division->countries->name}} @endif</td>
-                    <td>{{ $division->name }}</td>
-                    <td class="table_data"><a href="{{route('division.edit',$division->id)}}">Edit</a>
-                        <form action="{{route('division.delete',$division->id)}}" method="post">
-                            @csrf
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
+                    <td>@if(!empty($category)){{ $category->name }} @endif</td>
                 </tr>
             @endforeach
         </table>

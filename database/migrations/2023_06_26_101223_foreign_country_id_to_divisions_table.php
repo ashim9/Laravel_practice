@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('divisions', function (Blueprint $table) {
-            $table->foreign('country_id')->references('id')->on('countries');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
     }
 

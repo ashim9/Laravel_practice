@@ -257,7 +257,22 @@ Route::post('area/update/{id}', 'AreaController@update')->name('area.update');
 Route::post('area/delete/{id}', 'AreaController@delete')->name('area.delete');
 
 
+//category routes
+Route::get('categories','CategoryController@index')->name('categories');
+Route::get('category/create', 'CategoryController@create')->name('category.create');
+Route::post('category/store', 'CategoryController@store')->name('category.store');
+
+//Product routes
+Route::get('products','ProductController@index')->name('products');
+Route::get('product/create', 'ProductController@create')->name('product.create');
+Route::post('product/store', 'ProductController@store')->name('product.store');
+Route::get('product/edit/{id}', 'ProductController@edit')->name('product.edit');
+Route::get('product/delete/{id}', 'ProductController@delete')->name('product.delete');
+
+
+
+
+
 // AJAX Calls
 Route::get('load_divisions', 'DistrictController@load_divisions')->name('load_divisions');
-
 Route::get('load_districts', 'AreaController@load_districts')->name('load_districts');

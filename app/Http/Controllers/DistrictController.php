@@ -48,7 +48,6 @@ class DistrictController extends Controller
     }
 
     // AJAX function
-
     public function load_divisions(Request $request){
         $data['divisions'] = Division::query()->where('country_id',$request->country_id)->pluck('name','id');
         return view('ajax_views.division_options',$data);

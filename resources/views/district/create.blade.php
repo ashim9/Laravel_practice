@@ -38,7 +38,7 @@
             },
             success:function (response) {
                 $("#division_id").html(response);
-            },
+            },       
             error:function (err) {
                 console.log(err);
             }

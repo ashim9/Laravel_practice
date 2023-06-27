@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->unsignedBigInteger('district_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
