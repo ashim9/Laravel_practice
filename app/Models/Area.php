@@ -9,4 +9,8 @@ class Area extends Model
 {
     use HasFactory;
     protected $fillable = ['name','district_id'];
+
+    public function districts(){
+        return $this->belongsTo(District::class, 'district_id');
+    } 
 }

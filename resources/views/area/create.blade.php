@@ -4,7 +4,7 @@
     <div class="heading">
         <h1>Create a new entry:</h1>
     </div>
-    <form action="{{route('district.store')}}" method="POST">
+    <form action="{{route('area.store')}}" method="POST">
         @csrf
         <label for="name">Country Name:</label>
         <select name="country_id" id="country_id">
@@ -20,7 +20,13 @@
         </select>
 
         <label for="name">District Name:</label>
+         <select name="district_id" id="district_id">
+            <option value="">Select District</option>
+        </select>
+
+        <label for="name">Area Name:</label>
         <input type="text" id="name" name="name" required>
+        {{-- <input type="text" id="name" name="name" required> --}}
         
         <input type="submit" value="Submit">
     </form>
@@ -38,6 +44,23 @@
             },
             success:function (response) {
                 $("#division_id").html(response);
+            },
+            error:function (err) {
+                console.log(err);
+            }
+        });
+    });
+
+    $(document).on('change','#division_id',function(){
+        var division_id = $(this).val();
+        $.ajax({
+            method:"get",
+            url:"{{route('load_districts')}}",
+            data:{
+                division_id:division_id
+            },
+            success:function (response) {
+                $("#district_id").html(response);
             },
             error:function (err) {
                 console.log(err);

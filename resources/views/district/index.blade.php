@@ -28,25 +28,38 @@
             color: #000;
             text-decoration: none;
         }
+        .heading-wrap{
+            margin: 15px 0
+        }
+        .heading-wrap a{
+            text-decoration: none;
+            color: #000;
+            padding:10px 15px;
+            background-color: green;
+        }
     </style>
 </head>
 <body>  
-    <a href="{{route('division.create')}}" >Add Country</a>
+        <div class="heading-wrap">
+            <a href="{{route('district.create')}}" >Add District</a>
+        </div>
         <table class="w3-table w3-striped">
                 <tr>
                     <th>Country Name</th>
                     <th>Division Name</th>
+                    <th>District Name</th>
                     <th>Actions</th>
                 </tr>
                     <tr>
                         {{-- <td>{{ $countries->name }}</td> --}}
                     </tr>
-            @foreach ($divisions as $division)
+            @foreach ($districts as $district)
                 <tr>
-                    <td>{{ $division->countries->name }}</td>
-                    <td>{{ $division->name }}</td>
-                    <td class="table_data"><a href="{{route('division.edit',$division->id)}}">Edit</a> 
-                        <form action="{{route('division.delete',$division->id)}}" method="post">
+                    <td>{{ $district->divisions->countries->name }}</td>
+                    <td>{{ $district->divisions->name }}</td>
+                    <td>{{ $district->name }}</td>
+                    <td class="table_data"><a href="{{route('district.edit',$district->id)}}">Edit</a> 
+                        <form action="{{route('district.delete',$district->id)}}" method="post">
                             @csrf
                             <button type="submit">Delete</button>
                         </form>

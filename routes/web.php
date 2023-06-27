@@ -235,7 +235,7 @@ Route::post('country/delete/{id}', 'CountryController@delete')->name('country.de
 Route::get('divisions','DivisionController@index')->name('divisions');
 Route::get('division/create', 'DivisionController@create')->name('division.create');
 Route::post('division/store', 'DivisionController@store')->name('division.store');
-Route::get('divisiony/edit/{id}', 'DivisionController@edit')->name('division.edit');
+Route::get('division/edit/{id}', 'DivisionController@edit')->name('division.edit');
 Route::post('division/update/{id}', 'DivisionController@update')->name('division.update');
 Route::post('division/delete/{id}', 'DivisionController@delete')->name('division.delete');
 
@@ -249,13 +249,15 @@ Route::post('district/update/{id}', 'DistrictController@update')->name('district
 Route::post('district/delete/{id}', 'DistrictController@delete')->name('district.delete');
 
 // Area routes
-Route::get('country','CountryController@index')->name('country');
-Route::get('country/create', 'CountryController@create')->name('country.create');
-Route::post('country/store', 'CountryController@store')->name('country.store');
-Route::get('country/edit/{id}', 'CountryController@edit')->name('country.edit');
-Route::post('country/update/{id}', 'CountryController@update')->name('country.update');
-Route::post('country/delete/{id}', 'CountryController@delete')->name('country.delete');
+Route::get('areas','AreaController@index')->name('areas');
+Route::get('area/create', 'AreaController@create')->name('area.create');
+Route::post('area/store', 'AreaController@store')->name('area.store');
+Route::get('area/edit/{id}', 'AreaController@edit')->name('area.edit');
+Route::post('area/update/{id}', 'AreaController@update')->name('area.update');
+Route::post('area/delete/{id}', 'AreaController@delete')->name('area.delete');
 
 
 // AJAX Calls
 Route::get('load_divisions', 'DistrictController@load_divisions')->name('load_divisions');
+
+Route::get('load_districts', 'AreaController@load_districts')->name('load_districts');

@@ -11,7 +11,6 @@ class DistrictController extends Controller
 {
     //read
     public function index(){
-        $data['countries'] = Country::all();
         $data['districts'] = District::all();
         return view('district.index', $data);
     }
@@ -52,7 +51,6 @@ class DistrictController extends Controller
 
     public function load_divisions(Request $request){
         $data['divisions'] = Division::query()->where('country_id',$request->country_id)->pluck('name','id');
-
         return view('ajax_views.division_options',$data);
     }
 

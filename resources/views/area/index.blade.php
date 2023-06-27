@@ -40,19 +40,26 @@
     </style>
 </head>
 <body>  
-    <div>
-        <a href="{{route('country.create')}}" >Add Country</a>
+    <div class="heading-wrap">
+        <a href="{{route('area.create')}}" >Add District</a>
     </div>
     <table class="w3-table w3-striped">
             <tr>
                 <th>Country Name</th>
+                <th>Division Name</th>
+                <th>District Name</th>
+                <th>Area Name</th>
                 <th>Actions</th>
             </tr>
-        @foreach ($countries as $country)
+        @foreach ($areas as $area)
             <tr>
-                <td>{{ $country->name }}</td>
-                <td class="table_data"><a href="{{route('country.edit',$country->id)}}">Edit</a> 
-                    <form action="{{route('country.delete',$country->id)}}" method="post">
+                <td>{{ $area->districts->divisions->countries->name }}</td>
+                <td>{{ $area->districts->divisions->name }}</td>
+                <td>{{ $area->districts->name }}</td>
+                <td>{{ $area->name }}</td>
+
+                <td class="table_data"><a href="{{route('area.edit',$area->id)}}">Edit</a> 
+                    <form action="{{route('area.delete',$area->id)}}" method="post">
                         @csrf
                         <button type="submit">Delete</button>
                     </form>
