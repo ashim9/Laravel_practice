@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestingController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PermissionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -281,8 +282,16 @@ Route::post('product/delete/{id}', 'ProductController@delete')->name('product.de
 
 
 
-
-
 // AJAX Calls
 Route::get('load_divisions', 'DistrictController@load_divisions')->name('load_divisions');
 Route::get('load_districts', 'AreaController@load_districts')->name('load_districts');
+
+
+
+//permission routes
+Route::get('permissions', 'PermissionController@index')->name('permissions');
+Route::get('permission/create', 'PermissionController@create')->name('permission.create');
+Route::post('permission/store', 'PermissionController@store')->name('permission.store');
+Route::get('permission/edit/{id}', 'PermissionController@edit')->name('permission.edit');
+Route::post('permission/update/{id}', 'PermissionController@update')->name('permission.update');
+Route::post('permission/delete/{id}', 'PermissionController@delete')->name('permission.delete');
