@@ -41,7 +41,7 @@
 </head>
 <body>  
     <div class="heading-wrap">
-        <a href="{{route('product.create')}}" >Add Product</a>
+        <a href="{{route('product.create')}}">Add Product</a>
     </div>
         <table class="w3-table w3-striped">
                 <tr>
@@ -54,7 +54,7 @@
                     <td>{{ $product->name }}</td>
                     <td>
                         @foreach ($product->categories as $category)
-                            {{ $category->name }} ,        
+                            {{ $category->name }}       
                         @endforeach
                     </td>
                     <td class="table_data"><a href="{{route('product.edit',$product->id)}}">Edit</a>

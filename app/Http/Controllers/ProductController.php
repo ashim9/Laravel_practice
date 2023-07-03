@@ -21,9 +21,32 @@ class ProductController extends Controller
 
     // Create
     public function store(Request $request){
-        
         $product = Product::create($request->all());
         $product->categories()->attach($request->category_id);
+        return redirect()->route('products');
+    }
+
+    // Update form showing
+    public function edit($id){
+        $data['product'] = Product::find($id);
+        $data['categories'] = Category::pluck('name','id');
+        $data['product_categories'] = $data['product']->categories->pluck('id','id')->toArray();
+        return view('product.edit', $data);
+    }
+
+    // Update
+    public function update(Request $request, $id){
+        $product = Product::find($id);
+        $product->update($request->all());
+        $product->categories()->sync($request->category_id);
+        return redirect()->route('products');
+    }
+
+    // Delete
+    public function delete($id){
+        $product = Product::find($id);
+        $product->categories()->detach();
+        $product->delete();
         return redirect()->route('products');
     }
 }

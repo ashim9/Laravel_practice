@@ -41,7 +41,7 @@
 </head>
 <body>  
     <div>
-        <a href="{{route('country.create')}}" >Add Country</a>
+        <a href="{{route('country.create')}}">Add Country</a>
     </div>
     <table class="w3-table w3-striped">
             <tr>

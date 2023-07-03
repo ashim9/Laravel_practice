@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestingController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -214,13 +215,21 @@ Route::get('/view-clear', function() {
 });
 
 
-
+//plan routes
 Route::get('plans', 'PlanController@index')->name('plans');
 Route::get('plan/create', 'PlanController@create')->name('plan.create');
 Route::post('plan/store', 'PlanController@store')->name('plan.store');
 Route::get('plan/edit/{id}', 'PlanController@edit')->name('plan.edit');
 Route::post('plan/update/{id}', 'PlanController@update')->name('plan.update');
 Route::post('plan/delete/{id}', 'PlanController@delete')->name('plan.delete');
+
+//student routes
+Route::get('students', 'StudentController@index')->name('students');
+Route::get('student/create', 'StudentController@create')->name('student.create');
+Route::post('student/store', 'StudentController@store')->name('student.store');
+Route::get('student/edit/{id}', 'StudentController@edit')->name('student.edit');
+Route::post('student/update/{id}', 'StudentController@update')->name('student.update');
+Route::post('student/delete/{id}', 'StudentController@delete')->name('student.delete');
 
 
 // Country routes
@@ -267,7 +276,8 @@ Route::get('products','ProductController@index')->name('products');
 Route::get('product/create', 'ProductController@create')->name('product.create');
 Route::post('product/store', 'ProductController@store')->name('product.store');
 Route::get('product/edit/{id}', 'ProductController@edit')->name('product.edit');
-Route::get('product/delete/{id}', 'ProductController@delete')->name('product.delete');
+Route::post('product/update/{id}', 'ProductController@update')->name('product.update');
+Route::post('product/delete/{id}', 'ProductController@delete')->name('product.delete');
 
 
 

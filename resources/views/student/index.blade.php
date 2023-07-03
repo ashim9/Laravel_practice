@@ -25,27 +25,27 @@
     </style>
 </head>
 <body>
-    <a href="{{route('plan.create')}}" >Add plan</a>
+    <a href="{{route('student.create')}}" >Add student</a>
     <table>
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Duration</th>
+                <th>Email</th>
+                <th>Student Id</th>
+                <th>Address</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-        @foreach ($plans as $plan)
+        @foreach ($students as $student)
             <tr>
-                <td>{{$plan->name}}</td>
-                <td>{{$plan->description}}</td>
-                <td>{{$plan->price}}</td>
-                <td>{{$plan->duration}}</td>
+                <td>{{$student->name}}</td>
+                <td>{{$student->email}}</td>
+                <td>{{$student->student_id}}</td>
+                <td>{{$student->address}}</td>
                 <td>
-                    <a href="{{route('plan.edit',$plan->id)}}">Edit</a> 
-                    <form action="{{route('plan.delete',$plan->id)}}" method="post">
+                    <a href="{{route('student.edit',$student->id)}}">Edit</a> 
+                    <form action="{{route('student.delete',$student->id)}}" method="post">
                         @csrf
                         <button type="submit">Delete</button>
                     </form>
