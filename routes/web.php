@@ -6,6 +6,7 @@ use App\Http\Controllers\TestingController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -129,11 +130,11 @@ Route::get('/test', function(){
 Route::controller(PageController::class)->group(function(){
     Route::get('/','showHome')->name('home');
     Route::get('/blog','showBlog')->name('blog');
-    Route::get('/user/{id}','showUser')->name('user');
+    // Route::get('/user/{id}','showUser')->name('user');
 });
 
 
-Route::get('/test',TestingController::class);
+// Route::get('/test',TestingController::class);
 
 // Route::get('/',[PageController::class, 'showHome'])->name('home');
 // Route::get('/blog',[PageController::class, 'showBlog'])->name('blog');
@@ -154,22 +155,20 @@ Route::get('/posts/{id}', function(string $id){
 })->whereNumber('id');
 
 
-
-
-Route::get('/users', function(){
-    // return view('users', ['users'=> "AKBAR","city"=>" "]);
-    // $name = "AKBAR";
-    $names = [
-        1 => ['name' => "AKBAR","city" => "Dhaks","phone"=>"01010102"],
-        2 => ['name' => "AKBAR","city" => "Dhaks","phone"=>"01010102"],
-        3 => ['name' => "AKBAR","city" => "Dhaks","phone"=>"01010102"],
-        4 => ['name' => "AKBAR","city" => "Dhaks","phone"=>"01010102"]
-    ];
-    return view('users',[
-        'user'=> $names,
-        // 'city'=> 'Dhaka'
-    ]);
-});
+// Route::get('/users', function(){
+//     // return view('users', ['users'=> "AKBAR","city"=>" "]);
+//     // $name = "AKBAR";
+//     $names = [
+//         1 => ['name' => "AKBAR","city" => "Dhaks","phone"=>"01010102"],
+//         2 => ['name' => "AKBAR","city" => "Dhaks","phone"=>"01010102"],
+//         3 => ['name' => "AKBAR","city" => "Dhaks","phone"=>"01010102"],
+//         4 => ['name' => "AKBAR","city" => "Dhaks","phone"=>"01010102"]
+//     ];
+//     return view('users',[
+//         'user'=> $names,
+//         // 'city'=> 'Dhaka'
+//     ]);
+// });
 
 
 // Route::get('/', function () {
@@ -287,7 +286,6 @@ Route::get('load_divisions', 'DistrictController@load_divisions')->name('load_di
 Route::get('load_districts', 'AreaController@load_districts')->name('load_districts');
 
 
-
 //permission routes
 Route::get('permissions', 'PermissionController@index')->name('permissions');
 Route::get('permission/create', 'PermissionController@create')->name('permission.create');
@@ -304,3 +302,11 @@ Route::post('role/store', 'RoleController@store')->name('role.store');
 Route::get('role/edit/{id}', 'RoleController@edit')->name('role.edit');
 Route::post('role/update/{id}', 'RoleController@update')->name('role.update');
 Route::post('role/delete/{id}', 'RoleController@delete')->name('role.delete');
+
+//roles routes
+Route::get('users', 'UserController@index')->name('users');
+Route::get('user/create', 'UserController@create')->name('user.create');
+Route::post('user/store', 'UserController@store')->name('user.store');
+Route::get('user/edit/{id}', 'UserController@edit')->name('user.edit');
+Route::post('user/update/{id}', 'UserController@update')->name('user.update');
+Route::post('user/delete/{id}', 'UserController@delete')->name('user.delete');
