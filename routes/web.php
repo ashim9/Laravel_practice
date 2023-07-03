@@ -295,3 +295,12 @@ Route::post('permission/store', 'PermissionController@store')->name('permission.
 Route::get('permission/edit/{id}', 'PermissionController@edit')->name('permission.edit');
 Route::post('permission/update/{id}', 'PermissionController@update')->name('permission.update');
 Route::post('permission/delete/{id}', 'PermissionController@delete')->name('permission.delete');
+
+
+//roles routes
+Route::get('roles', 'RoleController@index')->name('roles');
+Route::get('role/create', 'RoleController@create')->name('role.create');
+Route::post('role/store', 'RoleController@store')->name('role.store');
+Route::get('role/edit/{id}', 'RoleController@edit')->name('role.edit');
+Route::post('role/update/{id}', 'RoleController@update')->name('role.update');
+Route::post('role/delete/{id}', 'RoleController@delete')->name('role.delete');
