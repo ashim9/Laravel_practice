@@ -35,7 +35,7 @@
         <label for="key">Key:</label>
         <input type="text" id="key" name="key" value="{{ $permission->key }}" required>
         <label for="name">Route Name:</label>
-        <input type="text" id="name" name="name" value="{{ $permission->route_name }}" required>
+        <input type="text" id="name" name="route_name" value="{{ $permission->route_name }}" required>
         
         <input type="submit" value="Submit">
     </form>

@@ -30,6 +30,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Role</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -37,6 +38,11 @@
         @foreach ($roles as $role)
             <tr>
                 <td>{{$role->name}}</td>
+                <td>
+                    @foreach ($role->permissions as $permission)
+                        {{ $permission->name }}
+                    @endforeach
+                </td>
                 <td>
                     <a href="{{route('role.edit',$role->id)}}">Edit</a> 
                     <form action="{{route('role.delete',$role->id)}}" method="post">

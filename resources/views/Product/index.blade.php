@@ -54,7 +54,7 @@
                     <td>{{ $product->name }}</td>
                     <td>
                         @foreach ($product->categories as $category)
-                            {{ $category->name }}       
+                            {{ $category->name }}
                         @endforeach
                     </td>
                     <td class="table_data"><a href="{{route('product.edit',$product->id)}}">Edit</a>
