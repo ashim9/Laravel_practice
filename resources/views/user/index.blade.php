@@ -13,11 +13,9 @@
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
-
         th {
             background-color: #f2f2f2;
         }
-
         /* Alternate row background color */
         tr:nth-child(even) {
             background-color: #f9f9f9;

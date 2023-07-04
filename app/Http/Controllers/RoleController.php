@@ -42,6 +42,7 @@ class RoleController extends Controller
         $role->permissions()->sync($request->permission_id);
         return redirect()->route('roles');
     }
+    
     // Delete
     public function delete($id){
         $role = Role::find($id);

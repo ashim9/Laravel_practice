@@ -30,7 +30,7 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Role</th>
+                <th>Permission</th>
                 <th>Action</th>
             </tr>
         </thead>
